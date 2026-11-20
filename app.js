@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const getUsers = () => JSON.parse(localStorage.getItem(usersKey) || "[]");
   const getSessions = () => JSON.parse(localStorage.getItem(sessionsKey) || "[]");
   const saveSessions = (sessions) => localStorage.setItem(sessionsKey, JSON.stringify(sessions));
-  const getCurrentSession = () => JSON.parse(localStorage.getItem(sessionKey) || "null");
+  const getCurrentSession = () => JSON.parse(sessionStorage.getItem(sessionKey) || "null");
   const protectedRoutes = new Set(["buzon.html", "chat.html", "oportunidades.html"]);
   const currentPage = window.location.pathname.split("/").pop().toLowerCase() || "index.html";
 
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    localStorage.removeItem(sessionKey);
+    sessionStorage.removeItem(sessionKey);
     sessionStorage.removeItem(deviceSessionKey);
     sessionStorage.setItem("nexoRouteMessage", "Debes iniciar sesión para acceder a esta sección");
     window.location.href = "login.html";
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const session = JSON.parse(localStorage.getItem(sessionKey) || "null");
+    const session = getValidSession();
     if (!session) {
       sessionsPanel.innerHTML = '<p class="sessions-empty">Inicia sesión para consultar tus dispositivos conectados.</p>';
       return;
@@ -170,12 +170,15 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     sessions.push(newSession);
-    sessions = sessions
-      .filter((item) => item.email !== user.email || item.sessionId === sessionId)
-      .concat(sessions.filter((item) => item.email === user.email && item.sessionId !== sessionId).sort((a, b) => new Date(a.fechaHora) - new Date(b.fechaHora)).slice(-2));
+    const otherUserSessions = sessions.filter((item) => item.email !== user.email);
+    const userSessions = sessions
+      .filter((item) => item.email === user.email)
+      .sort((a, b) => new Date(a.fechaHora) - new Date(b.fechaHora))
+      .slice(-2);
+    sessions = [...otherUserSessions, ...userSessions];
     saveSessions(sessions);
     sessionStorage.setItem(deviceSessionKey, sessionId);
-    localStorage.setItem(sessionKey, JSON.stringify({ name: user.name, email: user.email, role: user.role, sessionId }));
+    sessionStorage.setItem(sessionKey, JSON.stringify({ name: user.name, email: user.email, role: user.role, sessionId }));
   };
 
   const renderSession = () => {
@@ -183,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const session = JSON.parse(localStorage.getItem(sessionKey) || "null");
+    const session = getValidSession();
     sessionArea.innerHTML = "";
 
     if (!session) {
@@ -203,11 +206,11 @@ document.addEventListener("DOMContentLoaded", () => {
     logout.type = "button";
     logout.textContent = "Cerrar sesión";
     logout.addEventListener("click", () => {
-      const currentSession = JSON.parse(localStorage.getItem(sessionKey) || "null");
+      const currentSession = getValidSession();
       if (currentSession) {
         saveSessions(getSessions().filter((item) => item.sessionId !== currentSession.sessionId));
       }
-      localStorage.removeItem(sessionKey);
+      sessionStorage.removeItem(sessionKey);
       sessionStorage.removeItem(deviceSessionKey);
       renderSession();
       renderSessions();
@@ -221,9 +224,17 @@ document.addEventListener("DOMContentLoaded", () => {
   showRouteMessage();
 
   window.addEventListener("storage", (event) => {
-    if (event.key === sessionsKey || event.key === sessionKey) {
+    if (event.key === sessionsKey) {
+      if (!getValidSession()) {
+        sessionStorage.removeItem(sessionKey);
+        sessionStorage.removeItem(deviceSessionKey);
+      }
       renderSession();
       renderSessions();
+      if (!getValidSession() && protectedRoutes.has(currentPage)) {
+        sessionStorage.setItem("nexoRouteMessage", "Tu sesión fue cerrada desde otro dispositivo");
+        window.location.href = "login.html";
+      }
     }
   });
 
