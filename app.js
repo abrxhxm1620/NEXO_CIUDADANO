@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const getUsers = () => JSON.parse(localStorage.getItem(usersKey) || "[]");
   const getSessions = () => JSON.parse(localStorage.getItem(sessionsKey) || "[]");
   const saveSessions = (sessions) => localStorage.setItem(sessionsKey, JSON.stringify(sessions));
+  localStorage.removeItem(sessionKey);
   const getCurrentSession = () => JSON.parse(sessionStorage.getItem(sessionKey) || "null");
   const protectedRoutes = new Set(["buzon.html", "chat.html", "oportunidades.html"]);
   const currentPage = window.location.pathname.split("/").pop().toLowerCase() || "index.html";
@@ -504,7 +505,7 @@ document.addEventListener("DOMContentLoaded", () => {
         : user);
       localStorage.setItem(usersKey, JSON.stringify(users));
       saveSessions(getSessions().filter((session) => session.email !== recoveryRequest.email));
-      localStorage.removeItem(sessionKey);
+      sessionStorage.removeItem(sessionKey);
       sessionStorage.removeItem(deviceSessionKey);
       localStorage.removeItem(recoveryKey);
       sessionStorage.setItem("nexoRecoveryMessage", "Contraseña actualizada correctamente. Ya puedes iniciar sesión.");
