@@ -7,7 +7,7 @@
   --color-accent: #bb3d2e;
   --max-width: 1240px;
   --gutter: clamp(1.25rem, 4vw, 4rem);
-  --space-section: clamp(5rem, 11vw, 10rem);
+  --space-section: clamp(3.5rem, 7vw, 7rem);
   --font-sans: "DM Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -416,7 +416,7 @@ a {
   gap: 4rem;
   align-items: end;
   min-height: min(43rem, 70vh);
-  padding-block: clamp(6rem, 13vw, 11rem) clamp(5rem, 9vw, 8rem);
+  padding-block: clamp(4rem, 9vw, 8rem) clamp(3.5rem, 7vw, 6rem);
 }
 
 .eyebrow,
@@ -446,7 +446,12 @@ h1,
 h2,
 h3 {
   letter-spacing: -0.065em;
-  line-height: 0.95;
+  line-height: 1;
+  overflow-wrap: anywhere;
+}
+
+p {
+  line-height: 1.55;
 }
 
 h1 {
@@ -549,7 +554,7 @@ h2 em {
   grid-template-columns: minmax(10rem, 1fr) 2fr;
   gap: 2rem;
   align-items: start;
-  margin-bottom: clamp(3rem, 7vw, 6rem);
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
 }
 
 .section-index {
@@ -1353,6 +1358,15 @@ h2 em {
     padding-block: 0.75rem;
   }
 
+  .utility-nav {
+    position: fixed;
+    top: 5.25rem;
+    right: 1.25rem;
+    left: 1.25rem;
+    max-height: calc(100vh - 6.5rem);
+    overflow-y: auto;
+  }
+
   .main-nav {
     order: 4;
     display: flex;
@@ -1397,11 +1411,15 @@ h2 em {
   .hero {
     display: block;
     min-height: auto;
-    padding-block: 6rem;
+    padding-block: 3.5rem;
   }
 
   .hero-aside {
-    margin-top: 3rem;
+    margin-top: 2rem;
+  }
+
+  .hero-aside p {
+    max-width: 32rem;
   }
 
   .signal-grid {
@@ -1421,7 +1439,11 @@ h2 em {
 
   .section-heading .section-index,
   .data-layout .section-index {
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-heading {
+    margin-bottom: 2.25rem;
   }
 
   .card-grid {
@@ -1429,7 +1451,17 @@ h2 em {
   }
 
   .feature-card {
-    min-height: 20rem;
+    min-height: 17rem;
+  }
+
+  .feature-card h3 {
+    margin-top: 3.5rem;
+  }
+
+  .feature-card p,
+  .concept-card p,
+  .step-item p {
+    line-height: 1.65;
   }
 
   .concept-grid,
@@ -1442,12 +1474,26 @@ h2 em {
     display: block;
   }
 
+  .data-layout {
+    padding-block: 3.5rem;
+  }
+
+  .data-lead {
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .metric-list,
+  .budget-visual {
+    margin-bottom: 2.5rem;
+  }
+
   .budget-edit-grid {
     grid-template-columns: 1fr 1fr;
   }
 
   .concept-card {
-    min-height: 15rem;
+    min-height: 13rem;
   }
 
   .account-form {
@@ -1473,7 +1519,8 @@ h2 em {
   }
 
   .data-lead {
-    margin-top: 3rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
   }
 
   .data-content {
@@ -1485,7 +1532,7 @@ h2 em {
   }
 
   .participate-action {
-    margin-top: 3rem;
+    margin-top: 1.5rem;
   }
 
   .footer-content {
@@ -1525,7 +1572,22 @@ h2 em {
   }
 
   h1 {
-    font-size: clamp(3.5rem, 18vw, 5rem);
+    max-width: 10ch;
+    font-size: clamp(3rem, 15vw, 4.25rem);
+    line-height: 1.02;
+  }
+
+  h2 {
+    font-size: clamp(2.5rem, 13vw, 3.75rem);
+    line-height: 1.05;
+  }
+
+  .section {
+    padding-block: 3rem;
+  }
+
+  .eyebrow {
+    margin-bottom: 1.5rem;
   }
 
   .signal-grid {
