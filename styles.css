@@ -1349,13 +1349,22 @@ h2 em {
 @media (max-width: 760px) {
   .header-content {
     min-height: 5rem;
+    flex-wrap: wrap;
+    padding-block: 0.75rem;
   }
 
   .main-nav {
+    order: 4;
     display: flex;
-    gap: 0.8rem;
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: none;
+    gap: clamp(0.55rem, 3vw, 1.25rem);
+    justify-content: space-between;
+    margin: 0;
+    padding-top: 0.65rem;
+    border-top: 1px solid var(--color-line);
     overflow-x: auto;
-    margin-left: auto;
     scrollbar-width: none;
   }
 
@@ -1382,7 +1391,7 @@ h2 em {
   }
 
   .menu-label {
-    display: none;
+    display: inline;
   }
 
   .hero {
@@ -1499,8 +1508,20 @@ h2 em {
   }
 
   .main-nav {
-    max-width: 5rem;
-    margin-left: auto;
+    max-width: none;
+    margin-left: 0;
+  }
+
+  .main-nav a {
+    font-size: 0.68rem;
+  }
+
+  .session-area {
+    max-width: 7rem;
+  }
+
+  .utility-menu summary {
+    font-size: 0.7rem;
   }
 
   h1 {
