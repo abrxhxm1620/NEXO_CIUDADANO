@@ -1,0 +1,1 @@
+ciudadano@nexo.mx (contraseña Ciudadano1, rol ciudadano) admin@nexo.mx (contraseña Admin123, rol admin)

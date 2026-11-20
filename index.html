@@ -1,0 +1,229 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nexo Ciudadano: educación ciudadana y transparencia pública para participar mejor.">
+  <title>Nexo Ciudadano | Educación y transparencia pública</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header" id="inicio">
+    <div class="container header-content">
+      <a class="brand" href="/" aria-label="Nexo Ciudadano, inicio">
+        <span class="brand-mark" aria-hidden="true">N</span>
+        <span>Nexo<br>Ciudadano</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#derechos">Derechos</a>
+        <a href="#tramites">Trámites</a>
+        <a href="#presupuesto">Presupuesto</a>
+        <a href="#participa">Participa</a>
+      </nav>
+
+      <form class="site-search" action="#" role="search">
+        <label class="sr-only" for="site-search-input">Buscar en Nexo Ciudadano</label>
+        <input id="site-search-input" type="search" name="q" placeholder="Buscar" autocomplete="off">
+        <button type="submit" aria-label="Buscar"><span aria-hidden="true">⌕</span></button>
+      </form><div class="session-area" id="session-area"></div><details class="utility-menu">
+        <summary aria-label="Abrir menú de opciones">
+          <span class="menu-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="menu-label">Menú</span>
+        </summary>
+        <nav class="utility-nav" aria-label="Opciones adicionales">
+          <a href="registro.html">Registrar</a>
+          <a href="login.html">Iniciar sesión</a>
+          <a href="chat.html">Chat</a>
+          <a href="buzon.html">Buzón</a>
+          <a href="contacto.html">Contáctanos</a>
+          <a href="index.html#mapa-sitio">Mapa del sitio</a>
+          <a href="recuperar.html">Recuperar contraseña</a>
+          <a href="ayuda.html">Ayuda</a>
+        </nav>
+      </details>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-intro">
+        <p class="eyebrow">Educación cívica · Transparencia pública</p>
+        <h1 id="hero-title">La información pública nos conecta.</h1>
+      </div>
+      <div class="hero-aside">
+        <p>Un punto de encuentro para entender cómo funciona lo público, consultar datos y participar en las decisiones que construyen nuestra comunidad.</p>
+        <a class="button button-dark" href="#aprender">Comienza a explorar <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+
+    <section class="signal-bar" aria-label="Principios de Nexo Ciudadano">
+      <div class="container signal-grid">
+        <p><span class="signal-number">01</span> Entender</p>
+        <p><span class="signal-number">02</span> Verificar</p>
+        <p><span class="signal-number">03</span> Participar</p>
+        <p class="signal-note">Conocimiento para la acción colectiva.</p>
+      </div>
+    </section>
+
+    <section class="section container" id="aprender" aria-labelledby="learn-title" data-searchable>
+      <div class="section-heading">
+        <p class="section-index">01 / Aprender</p>
+        <h2 id="learn-title">Herramientas para<br><em>entender lo común.</em></h2>
+      </div>
+      <div class="card-grid">
+        <article class="feature-card" data-searchable>
+          <div class="card-topline"><span>Guías esenciales</span><span>↗</span></div>
+          <h3>¿Cómo funciona<br>el Estado?</h3>
+          <p>Conceptos claros para conocer las instituciones, sus responsabilidades y tu papel como ciudadano.</p>
+          <a class="text-link card-modal-link" href="#modal" data-modal-content="guide">Ver guías <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="feature-card feature-card-accent" data-searchable>
+          <div class="card-topline"><span>Ruta de aprendizaje</span><span>↗</span></div>
+          <h3>Ciudadanía<br>en práctica</h3>
+          <p>Un recorrido paso a paso para convertir la curiosidad en participación informada.</p>
+          <a class="text-link card-modal-link" href="#modal" data-modal-content="checklist">Comenzar ruta <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="feature-card" data-searchable>
+          <div class="card-topline"><span>Glosario público</span><span>↗</span></div>
+          <h3>Las palabras<br>de lo público</h3>
+          <p>Una referencia rápida para navegar el lenguaje de la administración pública.</p>
+          <a class="text-link card-modal-link" href="#modal" data-modal-content="glossary">Consultar glosario <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section concept-section" id="derechos" aria-labelledby="rights-title" data-searchable>
+      <div class="section-heading">
+        <p class="section-index">02 / Derechos</p>
+        <h2 id="rights-title">Lo legal, en<br><em>lenguaje claro.</em></h2>
+      </div>
+      <div class="concept-grid">
+        <article class="concept-card" data-searchable>
+          <span class="concept-term">Transparencia</span>
+          <p>El derecho de conocer cómo se toman las decisiones y cómo se utilizan los recursos públicos.</p>
+          <a class="text-link card-modal-link" href="#modal" data-modal-content="transparencia">Ver concepto <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="concept-card" data-searchable>
+          <span class="concept-term">Acceso a la información</span>
+          <p>Tu facultad de solicitar información pública sin tener que explicar para qué la necesitas.</p>
+          <a class="text-link card-modal-link" href="#modal" data-modal-content="acceso">Ver concepto <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="concept-card concept-card-accent" data-searchable>
+          <span class="concept-term">Participación ciudadana</span>
+          <p>Los mecanismos para opinar, proponer y vigilar las decisiones que afectan a tu comunidad.</p>
+          <a class="text-link card-modal-link" href="#modal" data-modal-content="participacion">Ver concepto <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section steps-section" id="tramites" aria-labelledby="steps-title" data-searchable>
+      <div class="section-heading">
+        <p class="section-index">03 / Trámites</p>
+        <h2 id="steps-title">Hazlo paso<br><em>a paso.</em></h2>
+      </div>
+      <div class="steps-list">
+        <article class="step-item" data-searchable>
+          <span class="step-number">01</span>
+          <div><h3>Identifica tu trámite</h3><p>Encuentra el servicio comunitario que necesitas y revisa sus requisitos.</p></div>
+          <span class="step-arrow" aria-hidden="true">↗</span>
+        </article>
+        <article class="step-item" data-searchable>
+          <span class="step-number">02</span>
+          <div><h3>Prepara tus documentos</h3><p>Consulta la lista de documentos, costos y tiempos antes de iniciar.</p></div>
+          <span class="step-arrow" aria-hidden="true">↗</span>
+        </article>
+        <article class="step-item" data-searchable>
+          <span class="step-number">03</span>
+          <div><h3>Da seguimiento</h3><p>Conserva tu folio y conoce el estado de tu solicitud en cada etapa.</p></div>
+          <span class="step-arrow" aria-hidden="true">↗</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="data-section" id="presupuesto" aria-labelledby="data-title" data-searchable>
+      <div class="container data-layout">
+        <div class="section-heading">
+          <p class="section-index">04 / Presupuesto</p>
+          <h2 id="data-title">El dinero<br><em>en contexto.</em></h2>
+        </div>
+        <div class="data-content">
+          <p class="data-lead">Explora cómo se distribuye el presupuesto público y qué temas reciben más recursos.</p>
+          <div class="budget-visual" aria-label="Distribución ilustrativa del presupuesto público">
+            <div class="budget-row"><span>Servicios comunitarios</span><strong>42%</strong><i style="--bar-size: 42%"></i></div>
+            <div class="budget-row"><span>Educación</span><strong>28%</strong><i style="--bar-size: 28%"></i></div>
+            <div class="budget-row"><span>Infraestructura</span><strong>18%</strong><i style="--bar-size: 18%"></i></div>
+            <div class="budget-row"><span>Administración</span><strong>12%</strong><i style="--bar-size: 12%"></i></div>
+          </div>
+          <a class="button button-outline" href="presupuesto.html">Explorar presupuesto <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="participate container" id="participa" aria-labelledby="participate-title" data-searchable>
+      <div class="participate-copy">
+        <p class="section-index">03 / Participar</p>
+        <h2 id="participate-title">Tu voz mueve<br><em>lo público.</em></h2>
+      </div>
+      <div class="participate-action">
+        <p>Conoce consultas, proyectos y espacios donde tus ideas pueden convertirse en decisiones.</p>
+        <a class="button button-dark" href="oportunidades.html">Ver oportunidades <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="section sitemap-section container" id="mapa-sitio" aria-labelledby="sitemap-title">
+      <div class="section-heading">
+        <p class="section-index">05 / Mapa del sitio</p>
+        <h2 id="sitemap-title">Encuentra tu<br><em>próximo paso.</em></h2>
+      </div>
+      <div class="sitemap-grid">
+        <div class="sitemap-column">
+          <h3>Secciones principales</h3>
+          <a href="#inicio">Inicio</a><a href="#derechos">Derechos</a><a href="#tramites">Trámites</a><a href="#presupuesto">Presupuesto</a><a href="#participa">Participa</a>
+        </div>
+        <div class="sitemap-column">
+          <h3>Secciones secundarias</h3>
+          <a href="#aprender">Guías para aprender</a><a href="presupuesto.html">Presupuesto detallado</a><a href="oportunidades.html">Oportunidades ciudadanas</a><a href="buzon.html">Buzón ciudadano</a><a href="contacto.html">Contáctanos</a>
+        </div>
+        <div class="sitemap-column">
+          <h3>Elementos adicionales</h3>
+          <a href="registro.html">Registrar</a><a href="login.html">Iniciar sesión</a><a href="chat.html">Chat</a><a href="buzon.html">Buzón</a><a href="contacto.html">Contáctanos</a><a href="index.html#mapa-sitio">Mapa del sitio</a><a href="recuperar.html">Recuperar contraseña</a><a href="ayuda.html">Ayuda</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="site-modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close" type="button">Cerrar ✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div>
+        <a class="brand brand-footer" href="/" aria-label="Nexo Ciudadano, inicio">
+          <span class="brand-mark" aria-hidden="true">N</span>
+          <span>Nexo<br>Ciudadano</span>
+        </a>
+        <p class="footer-note">Más información. Más participación.<br>Mejores decisiones.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#">Sobre el proyecto</a>
+        <a href="#">Accesibilidad</a>
+        <a href="#">Contacto</a>
+      </div>
+      <p class="copyright">© 2026 Nexo Ciudadano</p>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
+
+
+

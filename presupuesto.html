@@ -1,0 +1,26 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Desglose del presupuesto público | Nexo Ciudadano">
+  <title>Presupuesto | Nexo Ciudadano</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header" id="inicio"><div class="container header-content">
+    <a class="brand" href="index.html" aria-label="Nexo Ciudadano, inicio"><span class="brand-mark" aria-hidden="true">N</span><span>Nexo<br>Ciudadano</span></a>
+    <nav class="main-nav" aria-label="Navegación principal"><a href="index.html#inicio">Inicio</a><a href="index.html#derechos">Derechos</a><a href="index.html#tramites">Trámites</a><a href="index.html#presupuesto">Presupuesto</a><a href="index.html#participa">Participa</a></nav>
+    <form class="site-search" action="#" role="search"><label class="sr-only" for="site-search-input">Buscar en Nexo Ciudadano</label><input id="site-search-input" type="search" name="q" placeholder="Buscar" autocomplete="off"><button type="submit" aria-label="Buscar"><span aria-hidden="true">⌕</span></button></form><div class="session-area" id="session-area"></div><details class="utility-menu"><summary aria-label="Abrir menú de opciones"><span class="menu-icon" aria-hidden="true"><i></i><i></i><i></i></span><span class="menu-label">Menú</span></summary><nav class="utility-nav" aria-label="Opciones adicionales"><a href="registro.html">Registrar</a><a href="login.html">Iniciar sesión</a><a href="chat.html">Chat</a><a href="buzon.html">Buzón</a><a href="contacto.html">Contáctanos</a><a href="index.html#mapa-sitio">Mapa del sitio</a><a href="recuperar.html">Recuperar contraseña</a><a href="ayuda.html">Ayuda</a></nav></details>
+  </div></header>
+  <main><section class="section panel-section container page-panel" aria-labelledby="budget-title"><div class="section-heading"><p class="section-index">04 / Presupuesto público</p><h1 id="budget-title">El dinero<br><em>en contexto.</em></h1></div><div class="budget-controls"><p class="data-lead">Consulta cómo se distribuyen los recursos públicos por año.</p><label for="budget-year">Año<select id="budget-year"><option value="2025">2025</option><option value="2026" selected>2026</option></select></label></div><table class="budget-table"><thead><tr><th>Área</th><th>Porcentaje</th></tr></thead><tbody><tr data-budget-2025 data-budget-category="servicios" data-budget2025="40%" data-budget2026="42%"><td>Servicios comunitarios</td><td class="budget-value">42%</td></tr><tr data-budget-2025 data-budget-category="educacion" data-budget2025="30%" data-budget2026="28%"><td>Educación</td><td class="budget-value">28%</td></tr><tr data-budget-2025 data-budget-category="infraestructura" data-budget2025="18%" data-budget2026="18%"><td>Infraestructura</td><td class="budget-value">18%</td></tr><tr data-budget-2025 data-budget-category="administracion" data-budget2025="12%" data-budget2026="12%"><td>Administración</td><td class="budget-value">12%</td></tr></tbody></table><section class="budget-admin-panel" id="budget-admin-panel" aria-labelledby="budget-admin-title" hidden><p class="section-index">Administración</p><h2 id="budget-admin-title">Gestión de partidas presupuestarias <em>(Solo Administradores)</em></h2><p class="data-lead">Edita los porcentajes y consulta los cambios en la tabla en vivo.</p><div class="budget-edit-grid"><label for="budget-edit-servicios">Servicios comunitarios (%)<input id="budget-edit-servicios" data-budget-editor="servicios" type="number" min="0" max="100" step="1" value="42"></label><label for="budget-edit-educacion">Educación (%)<input id="budget-edit-educacion" data-budget-editor="educacion" type="number" min="0" max="100" step="1" value="28"></label><label for="budget-edit-infraestructura">Infraestructura (%)<input id="budget-edit-infraestructura" data-budget-editor="infraestructura" type="number" min="0" max="100" step="1" value="18"></label><label for="budget-edit-administracion">Administración (%)<input id="budget-edit-administracion" data-budget-editor="administracion" type="number" min="0" max="100" step="1" value="12"></label></div></section><p class="budget-access-notice" id="budget-access-notice">Acceso restringido: se requiere perfil Administrador</p><a class="button button-outline" href="index.html">← Volver al inicio</a></section></main>
+  <footer class="site-footer"><div class="container footer-content"><div><a class="brand brand-footer" href="index.html" aria-label="Nexo Ciudadano, inicio"><span class="brand-mark" aria-hidden="true">N</span><span>Nexo<br>Ciudadano</span></a><p class="footer-note">Más información. Más participación.<br>Mejores decisiones.</p></div><div class="footer-links"><a href="#">Sobre el proyecto</a><a href="#">Accesibilidad</a><a href="contacto.html">Contacto</a></div><p class="copyright">© 2026 Nexo Ciudadano</p></div></footer>
+  <script src="app.js"></script>
+</body>
+</html>
+
+
+
