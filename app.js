@@ -4,14 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const sessionsKey = "nexo_sesiones";
   const deviceSessionKey = "nexo_session_id";
   const recoveryKey = "nexo_recuperacion";
-  const searchForm = document.querySelector(".site-search");
-  const searchInput = document.querySelector("#site-search-input");
-  const searchableItems = document.querySelectorAll("[data-searchable]");
   const defaultUsers = [
     { name: "Ciudadano", email: "ciudadano@nexo.mx", password: "Ciudadano1", role: "ciudadano" },
     { name: "Administrador", email: "admin@nexo.mx", password: "Admin123", role: "admin" },
   ];
   const menu = document.querySelector(".utility-menu");
+  const searchForm = document.querySelector(".site-search");
+  const searchInput = document.querySelector("#site-search-input");
+  const searchableItems = document.querySelectorAll("[data-searchable]");
   const registerForm = document.querySelector("#register-form");
   const modal = document.querySelector("#modal");
   const modalContent = document.querySelector("#modal-content");
@@ -40,62 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const getCurrentSession = () => JSON.parse(sessionStorage.getItem(sessionKey) || "null");
   const protectedRoutes = new Set(["buzon.html", "chat.html", "oportunidades.html"]);
   const currentPage = window.location.pathname.split("/").pop().toLowerCase() || "index.html";
-
-  if (searchForm && searchInput) {
-    const searchStatus = document.createElement("span");
-    searchStatus.className = "search-status";
-    searchStatus.setAttribute("role", "status");
-    searchStatus.setAttribute("aria-live", "polite");
-    searchStatus.hidden = true;
-    searchForm.append(searchStatus);
-
-    const normalizeText = (text) => text
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase();
-
-    const filterContent = () => {
-      const query = normalizeText(searchInput.value.trim());
-      let matchCount = 0;
-
-      searchableItems.forEach((item) => {
-        const matches = normalizeText(item.textContent).includes(query);
-        item.hidden = query !== "" && !matches;
-        if (query !== "" && matches) {
-          matchCount += 1;
-        }
-      });
-
-      searchStatus.textContent = query !== "" && matchCount === 0
-        ? "No se encontraron resultados. Intenta con otra palabra."
-        : "";
-      searchStatus.hidden = searchStatus.textContent === "";
-    };
-
-    const initialQuery = new URLSearchParams(window.location.search).get("q");
-    if (searchableItems.length > 0) {
-      if (initialQuery !== null) {
-        searchInput.value = initialQuery;
-        filterContent();
-      }
-
-      searchInput.addEventListener("input", filterContent);
-    }
-
-    searchForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const query = searchInput.value.trim();
-
-      if (searchableItems.length === 0) {
-        if (query !== "") {
-          window.location.href = `index.html?q=${encodeURIComponent(query)}`;
-        }
-        return;
-      }
-
-      filterContent();
-    });
-  }
 
   const getValidSession = () => {
     const session = getCurrentSession();
@@ -376,6 +320,24 @@ document.addEventListener("DOMContentLoaded", () => {
         menu.removeAttribute("open");
       }
     });
+  }
+
+  if (searchForm && searchInput && searchableItems.length > 0) {
+    const filterContent = () => {
+      const query = searchInput.value.trim().toLowerCase();
+
+      searchableItems.forEach((item) => {
+        const matches = item.textContent.toLowerCase().includes(query);
+        item.hidden = query !== "" && !matches;
+      });
+    };
+
+    searchForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      filterContent();
+    });
+
+    searchInput.addEventListener("input", filterContent);
   }
 
   if (registerForm) {
